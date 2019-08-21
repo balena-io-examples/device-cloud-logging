@@ -1,0 +1,10 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian
+
+WORKDIR /usr/src/app
+
+RUN install_packages systemd-journal-remote curl
+
+
+COPY save-logs.sh .
+
+CMD /usr/src/app/save-logs.sh

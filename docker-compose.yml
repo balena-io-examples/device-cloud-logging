@@ -1,0 +1,14 @@
+version: '2'
+
+volumes:
+  log-volume:
+
+services:
+  log_producer:
+    build: './log-producer'
+  log_gatherer:
+    build: './log-gatherer'
+    labels:
+      'io.balena.features.supervisor-api': 1
+    volumes:
+      - 'log-volume:/logs'

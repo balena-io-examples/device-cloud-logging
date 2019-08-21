@@ -1,0 +1,5 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine
+
+# Anything printed by user containers will also show up in
+# the system journal
+CMD while true; do echo 'Hello from the log producer!'; sleep 10; done
